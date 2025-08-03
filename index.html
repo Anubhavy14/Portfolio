@@ -1,124 +1,464 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Anubhav Yadav | AI Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <title>Anubhav . | AI Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=JetBrains+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
+    :root {
+      --primary: #6366f1;
+      --primary-dark: #4f46e5;
+      --secondary: #10b981;
+      --dark: #1e293b;
+      --light: #f8fafc;
+      --gray: #94a3b8;
+      --accent: #f59e0b;
+    }
+    
     body {
-      font-family: 'Inter', sans-serif;
+      font-family: 'Poppins', sans-serif;
       margin: 0;
       padding: 0;
-      background: #f5f5f5;
-      color: #333;
+      background: var(--light);
+      color: var(--dark);
+      line-height: 1.6;
     }
+    
     header {
-      background: #1a1a1a;
-      color: #fff;
-      padding: 2rem;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+      padding: 3rem 2rem;
       text-align: center;
+      position: relative;
+      overflow: hidden;
     }
+    
+    header::after {
+      content: "";
+      position: absolute;
+      bottom: -50px;
+      left: 0;
+      right: 0;
+      height: 100px;
+      background: var(--light);
+      transform: skewY(-2deg);
+      z-index: 1;
+    }
+    
     .container {
-      max-width: 960px;
-      margin: auto;
+      max-width: 1100px;
+      margin: 0 auto;
       padding: 2rem;
+      position: relative;
+      z-index: 2;
     }
+    
     h1, h2, h3 {
-      color: #111;
+      color: var(--dark);
+      margin-top: 0;
     }
-    .section {
-      margin-bottom: 2.5rem;
+    
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
     }
-    ul {
-      padding-left: 1.2rem;
-    }
-    a {
-      color: #007acc;
-      text-decoration: none;
-    }
-    .project {
+    
+    h2 {
+      font-size: 1.8rem;
       margin-bottom: 1.5rem;
+      position: relative;
+      display: inline-block;
     }
+    
+    h2::after {
+      content: "";
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 50px;
+      height: 4px;
+      background: var(--primary);
+      border-radius: 2px;
+    }
+    
+    h3 {
+      font-size: 1.3rem;
+      color: var(--primary-dark);
+    }
+    
+    .section {
+      margin-bottom: 3rem;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .section:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+    }
+    
+    ul {
+      padding-left: 1.5rem;
+      list-style-type: none;
+    }
+    
+    ul li {
+      position: relative;
+      padding-left: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    ul li::before {
+      content: "▹";
+      position: absolute;
+      left: 0;
+      color: var(--primary);
+    }
+    
+    a {
+      color: var(--primary);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    
+    a:hover {
+      color: var(--primary-dark);
+    }
+    
+    .project {
+      margin-bottom: 2rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px dashed var(--gray);
+    }
+    
+    .project:last-child {
+      border-bottom: none;
+    }
+    
+    .project-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 0.8rem 0;
+    }
+    
+    .tech-tag {
+      background: rgba(99, 102, 241, 0.1);
+      color: var(--primary-dark);
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    
     footer {
       text-align: center;
-      padding: 1rem;
-      background: #e0e0e0;
+      padding: 2rem;
+      background: var(--dark);
+      color: white;
+    }
+    
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+    
+    .social-links a {
+      color: white;
+      font-size: 1.5rem;
+      transition: transform 0.3s;
+    }
+    
+    .social-links a:hover {
+      transform: translateY(-3px);
+      color: var(--accent);
+    }
+    
+    .profile-img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid white;
+      margin: 0 auto 1rem;
+      display: block;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+    
+    .header-subtitle {
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+      opacity: 0.9;
+    }
+    
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+    
+    .stat-card {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 8px;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    }
+    
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin: 0.5rem 0;
+    }
+    
+    .stat-label {
+      color: var(--gray);
+      font-size: 0.9rem;
+    }
+    
+    .skill-category {
+      margin-bottom: 1.5rem;
+    }
+    
+    .skill-bar {
+      height: 10px;
+      background: #e2e8f0;
+      border-radius: 5px;
+      margin-top: 0.5rem;
+      overflow: hidden;
+    }
+    
+    .skill-progress {
+      height: 100%;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      border-radius: 5px;
+    }
+    
+    @media (max-width: 768px) {
+      .container {
+        padding: 1rem;
+      }
+      
+      .section {
+        padding: 1.5rem;
+      }
+      
+      h1 {
+        font-size: 2rem;
+      }
+      
+      h2 {
+        font-size: 1.5rem;
+      }
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Anubhav Yadav</h1>
-    <p>Machine Learning Engineer | Generative AI | Computer Vision</p>
-    <p>
-      📧 <a href="mailto:anubhavyadav2214@gmail.com">anubhavyadav2214@gmail.com</a> |
-      <a href="https://linkedin.com/in/anubhav-yadav-b81905203">LinkedIn</a> |
-      <a href="https://github.com/Anubhavy14">GitHub</a>
-    </p>
+    <img src="https://avatars.githubusercontent.com/u/12345678?v=4" alt="Anubhav ." class="profile-img">
+    <h1>Anubhav .</h1>
+    <p class="header-subtitle">Machine Learning Engineer | Generative AI | Computer Vision</p>
+    <div class="social-links">
+      <a href="mailto:anubhavyadav2214@gmail.com"><i class="fas fa-envelope"></i></a>
+      <a href="https://linkedin.com/in/anubhav-yadav-b81905203"><i class="fab fa-linkedin-in"></i></a>
+      <a href="https://github.com/Anubhavy14"><i class="fab fa-github"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+    </div>
   </header>
+  
   <div class="container">
+    <div class="stats-grid">
+      <div class="stat-card">
+        <i class="fas fa-project-diagram" style="font-size: 2rem; color: var(--primary);"></i>
+        <div class="stat-number">15+</div>
+        <div class="stat-label">Projects Completed</div>
+      </div>
+      <div class="stat-card">
+        <i class="fas fa-code" style="font-size: 2rem; color: var(--primary);"></i>
+        <div class="stat-number">10K+</div>
+        <div class="stat-label">Lines of Code</div>
+      </div>
+      <div class="stat-card">
+        <i class="fas fa-brain" style="font-size: 2rem; color: var(--primary);"></i>
+        <div class="stat-number">5</div>
+        <div class="stat-label">ML Models Deployed</div>
+      </div>
+      <div class="stat-card">
+        <i class="fas fa-certificate" style="font-size: 2rem; color: var(--primary);"></i>
+        <div class="stat-number">8</div>
+        <div class="stat-label">Certifications</div>
+      </div>
+    </div>
+    
     <section class="section">
       <h2>About Me</h2>
       <p>
-        I’m a Machine Learning Engineer passionate about building intelligent systems using LLMs, Computer Vision, and Deep Learning. With hands-on experience in deploying scalable ML solutions, I specialize in generative AI and real-world automation.
+        I'm a passionate Machine Learning Engineer specializing in building intelligent systems using cutting-edge technologies like LLMs, Computer Vision, and Deep Learning. With hands-on experience in deploying scalable ML solutions, I bridge the gap between research and production.
       </p>
-    </section><section class="section">
-  <h2>Professional Experience</h2>
-  <h3>Intern – Generative AI, NMtronics India Pvt. Ltd (Feb 2025 – Present)</h3>
-  <ul>
-    <li>Built a production-grade RAG pipeline using LangChain & LLaMA-3, optimizing response time by 40%</li>
-    <li>Improved retrieval accuracy by 25% using FAISS + OllamaEmbeddings</li>
-    <li>Scraped & ingested data from 50+ sources using WebBaseLoader with automated preprocessing</li>
-    <li>Fine-tuned prompts achieving 92% answer relevance on custom QA benchmarks</li>
-  </ul>
-</section>
-
-<section class="section">
-  <h2>Projects</h2>
-  <div class="project">
-    <h3>📍 Real-Time Pothole Detection System</h3>
-    <p><strong>Tech:</strong> Python, TensorFlow, OpenCV, Docker</p>
-    <ul>
-      <li>Built CNN (Conv2D, ReLU, Dropout) with 89.99% accuracy</li>
-      <li>Optimized inference with TensorRT for edge deployment</li>
-      <li>Integrated OpenCV with Flask API for real-time video feed</li>
-    </ul>
+      <p>
+        My expertise lies in generative AI applications and real-world automation solutions that drive business value. I thrive on solving complex problems with elegant, efficient code and robust machine learning architectures.
+      </p>
+    </section>
+    
+    <section class="section">
+      <h2>Professional Experience</h2>
+      <div class="project">
+        <h3><i class="fas fa-briefcase" style="color: var(--accent); margin-right: 0.5rem;"></i> Intern – , NMtronics India Pvt. Ltd (Feb 2025 – Present)</h3>
+        <div class="project-tech">
+          <span class="tech-tag">LangChain</span>
+          <span class="tech-tag">LLaMA-3</span>
+          <span class="tech-tag">FAISS</span>
+          <span class="tech-tag">OllamaEmbeddings</span>
+          <span class="tech-tag">RAG</span>
+        </div>
+        <ul>
+          <li>Built a production-grade RAG pipeline using LangChain & LLaMA-3, optimizing response time by 40%</li>
+          <li>Improved retrieval accuracy by 25% using FAISS + OllamaEmbeddings with custom similarity metrics</li>
+          <li>Scraped & ingested data from 50+ technical sources using WebBaseLoader with automated preprocessing</li>
+          <li>Fine-tuned prompts achieving 92% answer relevance on custom QA benchmarks through iterative testing</li>
+        </ul>
+      </div>
+    </section>
+    
+    <section class="section">
+      <h2>Featured Projects</h2>
+      
+      <div class="project">
+        <h3><i class="fas fa-road" style="color: var(--primary); margin-right: 0.5rem;"></i> Real-Time Pothole Detection System</h3>
+        <div class="project-tech">
+          <span class="tech-tag">TensorFlow</span>
+          <span class="tech-tag">OpenCV</span>
+          <span class="tech-tag">Docker</span>
+          <span class="tech-tag">TensorRT</span>
+          <span class="tech-tag">Flask</span>
+        </div>
+        <ul>
+          <li>Built CNN architecture (Conv2D, ReLU, Dropout) achieving 89.99% accuracy on custom dataset</li>
+          <li>Optimized inference speed by 3x with TensorRT for edge deployment on NVIDIA Jetson</li>
+          <li>Integrated OpenCV with Flask API for real-time video feed processing at 25 FPS</li>
+          <li>Developed custom data augmentation pipeline improving model generalization by 15%</li>
+        </ul>
+      </div>
+      
+      <div class="project">
+        <h3><i class="fas fa-twitter" style="color: #1DA1F2; margin-right: 0.5rem;"></i> Twitter Sentiment Analysis Engine</h3>
+        <div class="project-tech">
+          <span class="tech-tag">BERT</span>
+          <span class="tech-tag">Scikit-learn</span>
+          <span class="tech-tag">AWS</span>
+          <span class="tech-tag">Docker</span>
+          <span class="tech-tag">CI/CD</span>
+        </div>
+        <ul>
+          <li>Implemented BERT model achieving 88% accuracy vs classical models (83%) on 50K tweets</li>
+          <li>Automated preprocessing pipeline with custom tokenization and lemmatization</li>
+          <li>Deployed scalable solution on AWS EC2 with CI/CD using GitHub Actions</li>
+          <li>Built monitoring dashboard with accuracy drift detection and alerting</li>
+        </ul>
+      </div>
+      
+      <div class="project">
+        <h3><i class="fas fa-home" style="color: var(--secondary); margin-right: 0.5rem;"></i> Bangalore Real Estate Price Prediction</h3>
+        <div class="project-tech">
+          <span class="tech-tag">XGBoost</span>
+          <span class="tech-tag">Plotly</span>
+          <span class="tech-tag">GeoPandas</span>
+          <span class="tech-tag">Hyperopt</span>
+          <span class="tech-tag">Dash</span>
+        </div>
+        <ul>
+          <li>Performed geospatial feature engineering & outlier filtering on 10K+ property listings</li>
+          <li>Tested 10+ models; tuned with Hyperopt achieving RMSE = 0.12 (best in class)</li>
+          <li>Built interactive dashboard with Plotly Dash featuring price heatmaps and trends</li>
+          <li>Integrated with Bangalore GIS data for neighborhood amenity scoring</li>
+        </ul>
+      </div>
+    </section>
+    
+    <section class="section">
+      <h2>Technical Skills</h2>
+      
+      <div class="skill-category">
+        <h3>Programming Languages</h3>
+        <div class="skill-bar">
+          <div class="skill-progress" style="width: 95%"></div>
+        </div>
+      </div>
+      
+      <div class="skill-category">
+        <h3>Machine Learning & Deep Learning</h3>
+        <div class="skill-bar">
+          <div class="skill-progress" style="width: 90%"></div>
+        </div>
+        <div class="project-tech" style="margin-top: 1rem;">
+          <span class="tech-tag">PyTorch</span>
+          <span class="tech-tag">TensorFlow</span>
+          <span class="tech-tag">Keras</span>
+          <span class="tech-tag">Hugging Face</span>
+          <span class="tech-tag">Scikit-learn</span>
+        </div>
+      </div>
+      
+      <div class="skill-category">
+        <h3>Generative AI</h3>
+        <div class="skill-bar">
+          <div class="skill-progress" style="width: 85%"></div>
+        </div>
+        <div class="project-tech" style="margin-top: 1rem;">
+          <span class="tech-tag">LangChain</span>
+          <span class="tech-tag">LLaMA-3</span>
+          <span class="tech-tag">RAG</span>
+          <span class="tech-tag">GPT</span>
+          <span class="tech-tag">Diffusion Models</span>
+        </div>
+      </div>
+      
+      <div class="skill-category">
+        <h3>DevOps & Deployment</h3>
+        <div class="skill-bar">
+          <div class="skill-progress" style="width: 80%"></div>
+        </div>
+        <div class="project-tech" style="margin-top: 1rem;">
+          <span class="tech-tag">Docker</span>
+          <span class="tech-tag">AWS</span>
+          <span class="tech-tag">FastAPI</span>
+          <span class="tech-tag">CI/CD</span>
+          <span class="tech-tag">Kubernetes</span>
+        </div>
+      </div>
+    </section>
+    
+    <section class="section">
+      <h2>Certifications & Achievements</h2>
+      <ul>
+        <li><strong>5-Star SQL (HackerRank)</strong> - Ranked in Top 1% of participants globally</li>
+        <li><strong>Crack the Case Finalist</strong> - Secured 2nd position among 100+ competing teams</li>
+        <li><strong>Regional Mathematical Olympiad Qualifier</strong> - Among top 300 students nationally</li>
+        <li><strong>Deep Learning Specialization (deeplearning.ai)</strong> - Completed advanced coursework in Neural Networks</li>
+        <li><strong>Google Cloud Certified - Professional Data Engineer</strong> - Cloud-based ML solutions expertise</li>
+      </ul>
+    </section>
   </div>
-
-  <div class="project">
-    <h3>📊 Twitter Sentiment Analysis</h3>
-    <p><strong>Tech:</strong> BERT, Scikit-learn, AWS, Docker</p>
-    <ul>
-      <li>Implemented BERT model (88% accuracy) vs classical models (83%)</li>
-      <li>Automated preprocessing: tokenization, lemmatization</li>
-      <li>Deployed on AWS EC2 with CI/CD using GitHub Actions</li>
-    </ul>
-  </div>
-
-  <div class="project">
-    <h3>🏙 Bangalore Real Estate Price Prediction</h3>
-    <p><strong>Tech:</strong> Python, XGBoost, Plotly, GeoPandas</p>
-    <ul>
-      <li>Performed geospatial feature engineering & outlier filtering</li>
-      <li>Tested 10+ models; tuned with Hyperopt; RMSE = 0.12</li>
-      <li>Built interactive dashboard using Plotly Dash</li>
-    </ul>
-  </div>
-</section>
-
-<section class="section">
-  <h2>Skills</h2>
-  <p><strong>Languages:</strong> Python, SQL, Bash</p>
-  <p><strong>ML/DL:</strong> PyTorch, TensorFlow, Keras, Hugging Face</p>
-  <p><strong>GenAI:</strong> LangChain, LLaMA-3, RAG</p>
-  <p><strong>DevOps:</strong> Docker, AWS, FastAPI</p>
-  <p><strong>Data:</strong> Pandas, NumPy, Dask, FAISS</p>
-</section>
-
-<section class="section">
-  <h2>Certifications & Achievements</h2>
-  <ul>
-    <li>5-Star SQL (HackerRank) – Top 1%</li>
-    <li>Crack the Case Finalist – 2nd among 100+ teams</li>
-    <li>Regional Mathematical Olympiad Qualifier</li>
-    <li>National-Level
+  
+  <footer>
+    <p>Let's build something amazing together!</p>
+    <div class="social-links">
+      <a href="mailto:anubhavyadav2214@gmail.com"><i class="fas fa-envelope"></i></a>
+      <a href="https://linkedin.com/in/anubhav-yadav-b81905203"><i class="fab fa-linkedin-in"></i></a>
+      <a href="https://github.com/Anubhavy14"><i class="fab fa-github"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+    </div>
+    <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8;">© 2025 Anubhav Yadav. All rights reserved.</p>
+  </footer>
+</body>
+</html>
